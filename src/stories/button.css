@@ -1,0 +1,25 @@
+.button {
+  padding: 10px 20px;
+  background: white;
+  border-radius: 5px;
+  font-size: 15px;
+  border: 1px solid grey;
+  box-shadow: 0px 2px #f6f6f7;
+}
+
+.button:hover {
+  background: #f6f6f7;
+  cursor: pointer;
+}
+
+.button:active {
+  background: #f1f2f3;
+}
+
+.context {
+  border: 2px solid #015fcc;
+}
+
+.triggered {
+  background: #f1f2f3;
+}
