@@ -1,16 +1,19 @@
-import { KeyboardEventHandler, useState } from 'react';
+import { KeyboardEventHandler, MouseEventHandler, useState } from 'react';
 import './button.css';
 
 interface IButton {
   children: string;
+  onClick: MouseEventHandler;
 }
 
-const Button: React.VFC<IButton> = ({ children }) => {
+const gf = (e: Event): void => {};
+
+const Button: React.VFC<IButton> = ({ children, onClick }) => {
   const [hasContext, setHasContext] = useState<boolean>(false);
   const [isTriggered, setIsTriggered] = useState<boolean>(false);
 
   const handleKeyDown: KeyboardEventHandler = (e) => {
-    if (e.code === '13') {
+    if (e.code === 'Enter') {
       setIsTriggered(true);
     }
   };
@@ -24,6 +27,7 @@ const Button: React.VFC<IButton> = ({ children }) => {
       }
       onKeyDown={(e) => handleKeyDown(e)}
       onKeyUp={() => setIsTriggered(false)}
+      onClick={onClick}
     >
       {children}
     </button>
